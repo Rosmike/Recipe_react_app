@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import MenuItems from "./MenuItems";
 import './Navbar.css'
 import {Button} from "../Button";
+import LoginApp from "../../Login/LoginApp";
+import { Route, BrowserRouter as Router, Redirect, Link } from "react-router-dom";
+
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -12,6 +15,7 @@ class Navbar extends Component {
 
     render() {
         return(
+            <Router>
             <nav className="NavbarItems">
                 <h1 className="navbar-logo">
                     Fridger
@@ -33,8 +37,9 @@ class Navbar extends Component {
                     })}
 
                 </ul>
-                <Button>Sign up</Button>
+                <Button><Link to={"/signup"}>Sign up</Link></Button>
             </nav>
+            </Router>
         )
     }
 }

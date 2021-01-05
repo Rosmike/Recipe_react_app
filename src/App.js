@@ -2,17 +2,13 @@ import React, {useEffect, useState} from "react";
 import Recipe from "./Recipe";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-// Firebase App (the core Firebase SDK) is always required and must be listed first
-import firebase from "firebase/app";
-// If you are using v7 or any earlier version of the JS SDK, you should import firebase using namespace import
-// import * as firebase from "firebase/app"
+import { Route, BrowserRouter as Router, Redirect, Link } from "react-router-dom"
 
-// If you enabled Analytics in your project, add the Firebase SDK for Analytics
 import "firebase/analytics";
 
-// Add the Firebase products that you want to use
 import "firebase/auth";
 import "firebase/firestore";
+import LoginApp from "./Login/LoginApp";
 
 
 const App = () => {
@@ -49,7 +45,8 @@ const App = () => {
 
 
     return (
-
+        <Router>
+            <Route exact path = "/">
         <div className="App">
             <Navbar/>
             <form onSubmit={getSearch} className="search-form">
@@ -75,7 +72,12 @@ const App = () => {
                     />
                     ))}
             </div>
-        </div>
+            </div>
+            </Route>
+            <Route exact path="/signup">
+                <LoginApp/>
+            </Route>
+        </Router>
     );
 }
 
