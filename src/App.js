@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Recipe from "./Recipe";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-import { Route, BrowserRouter as Router, Redirect, Link } from "react-router-dom"
+import {Route, BrowserRouter as Router, Redirect, Link, Switch} from "react-router-dom"
 
 import "firebase/analytics";
 
@@ -17,7 +17,7 @@ const App = () => {
 
     const [recipes, setRecipes] = useState([]);
     const [search, setSearch] = useState("");
-    const [query, setQuery] = useState('chicken');
+    const [query, setQuery] = useState('');
 
     useEffect(() => {
         getRecipes();
@@ -46,37 +46,39 @@ const App = () => {
 
     return (
         <Router>
-            <Route exact path = "/">
-        <div className="App">
-            <Navbar/>
-            <form onSubmit={getSearch} className="search-form">
-                <input
-                    className="search-bar"
-                    type="text"
-                    value={search}
-                    onChange={updateSearch}
-                />
-                <button className="search-button" type="submit">
-                    Search
-                </button>
-            </form>
-            <div className="recipes">
-                {recipes.map(({recipe: { label, calories, image, ingredients }}) =>(
-                    <Recipe
-                    key={label}
-                    title={label}
-                    calories={calories}
-                    image={image}
-                    ingredients={ingredients}
 
-                    />
-                    ))}
-            </div>
-            </div>
-            </Route>
-            <Route exact path="/signup">
-                <LoginApp/>
-            </Route>
+            <Switch>
+                <Route exact path="/">
+                    <Navbar/>
+                    <div className="App">
+
+                        <form onSubmit={getSearch} className="search-form">
+                            <input
+                                className="search-bar"
+                                type="text"
+                                value={search}
+                                onChange={updateSearch}
+                            />
+                            <button className="search-button" type="submit">
+                                Search
+                            </button>
+                        </form>
+                        <div className="recipes">
+                            {recipes.map(({recipe: {label, calories, image, ingredients}}) => (
+                                <Recipe
+                                    key={label}
+                                    title={label}
+                                    calories={calories}
+                                    image={image}
+                                    ingredients={ingredients}
+
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </Route>
+                <Route exact path="/signup" component={LoginApp}/>
+            </Switch>
         </Router>
     );
 }

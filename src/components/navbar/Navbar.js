@@ -3,7 +3,7 @@ import MenuItems from "./MenuItems";
 import './Navbar.css'
 import {Button} from "../Button";
 import LoginApp from "../../Login/LoginApp";
-import { Route, BrowserRouter as Router, Redirect, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router, Redirect, NavLink as Link } from "react-router-dom";
 
 
 class Navbar extends Component {
@@ -15,11 +15,10 @@ class Navbar extends Component {
 
     render() {
         return(
-            <Router>
             <nav className="NavbarItems">
                 <h1 className="navbar-logo">
                     Fridger
-                    <i className="fas fa-utensils"></i>
+                    <i className="fas fa-utensils" />
                 </h1>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}/>
@@ -37,9 +36,8 @@ class Navbar extends Component {
                     })}
 
                 </ul>
-                <Button><Link to={"/signup"}>Sign up</Link></Button>
+                <Link to="/signup">Sign up</Link>
             </nav>
-            </Router>
         )
     }
 }

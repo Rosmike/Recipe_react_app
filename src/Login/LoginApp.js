@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import fire from "../fire";
 import Login from "./Login";
-import Hero from './Hero'
+import UserApp from './UserApp'
 import "./LoginApp.css";
 
 
@@ -29,7 +29,6 @@ const LoginApp = () => {
             .auth()
             .signInWithEmailAndPassword(email, password)
             .catch(err => {
-                // eslint-disable-next-line default-case
                 switch (err.code){
                     case "auth/invalid-email":
                     case "auth/user-disabled":
@@ -84,7 +83,7 @@ const LoginApp = () => {
     return (
         <div className="LoginApp">
             {user ? (
-                <Hero handleLogout={handleLogout}/>
+                <UserApp handleLogout={handleLogout}/>
             ) : (
                 <Login
                     email={email}
@@ -99,8 +98,6 @@ const LoginApp = () => {
                     passwordError={passwordError}
                 />
             )}
-
-
         </div>
     );
 };
