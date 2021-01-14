@@ -1,16 +1,6 @@
 const MenuItems = [
   {
-    title: "Home",
-    url: "#",
-    cName: "nav-links",
-  },
-  {
-    title: "Services",
-    url: "#",
-    cName: "nav-links",
-  },
-  {
-    title: "Products",
+    title: "Your favorite recipes",
     url: "#",
     cName: "nav-links",
   },
@@ -20,7 +10,7 @@ const MenuItems = [
     cName: "nav-links",
   },
   {
-    title: "Sign up",
+    title: "Logout",
     url: "#",
     cName: "nav-links-mobile",
   },

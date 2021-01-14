@@ -1,19 +1,32 @@
 import React from "react";
-import style from "./recipe.module.css"
+import "./recipe.css";
 
-const Recipe = ({title, calories, image, ingredients}) => {
-    return(
-      <div className={style.recipe}>
-          <h1 >{title}</h1>
-          <ol>
-              {ingredients.map(ingredient =>(
-                  <li>{ingredient.text}</li>
-              ))}
-          </ol>
-          <p>{calories}</p>
-          <img className={style.image} src={image} alt=""/>
-      </div>
-    );
-}
+const Recipe = ({
+  title,
+  calories,
+  image,
+  ingredients,
+  setChosenRecipe,
+  url,
+}) => {
+  const handleRecipeClick = () => {
+    console.log("witam");
+    setChosenRecipe({
+      key: title,
+      title: title,
+      calories: calories,
+      image: image,
+      ingredients: ingredients,
+      url: url,
+    });
+  };
+
+  return (
+    <div className="recipe" onClick={handleRecipeClick}>
+      <h1 className="recipeTitle">{title}</h1>
+      <img className="image" src={image} alt="" />
+    </div>
+  );
+};
 
 export default Recipe;

@@ -73,8 +73,12 @@
     transition: all 0.5s ease;
   }
 
+  .button-signup {
+    display: none;
+  }
+
   .nav-menu.active {
-    background: #6668f4;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;

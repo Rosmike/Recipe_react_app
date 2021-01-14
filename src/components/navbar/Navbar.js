@@ -1,14 +1,8 @@
 import React, { Component } from "react";
 import MenuItems from "./MenuItems";
 import "./Navbar.css";
-import { Button } from "../Button";
-import LoginApp from "../../Login/LoginApp";
-import {
-  Route,
-  BrowserRouter as Router,
-  Redirect,
-  NavLink as Link,
-} from "react-router-dom";
+import "../Button.css";
+import { NavLink as Link } from "react-router-dom";
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -38,7 +32,14 @@ class Navbar extends Component {
             );
           })}
         </ul>
-        <Link to="/signup">Sign up</Link>
+
+        <Link
+          to="/"
+          className="button-signup"
+          onClick={this.props.handleLogout}
+        >
+          Logout
+        </Link>
       </nav>
     );
   }

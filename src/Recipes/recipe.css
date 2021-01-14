@@ -1,0 +1,40 @@
+.recipe{
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px grey;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: white;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+}
+
+.recipeTitle {
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+}
+
+.recipe-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.recipe-plus {
+    color: green;
+    margin-right: 3px;
+}
+
+.recipe-minus {
+    color: red;
+}
